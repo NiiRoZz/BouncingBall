@@ -1,0 +1,48 @@
+class Vector
+{
+    float x;
+    float y;
+};
+
+class Ball
+{
+    Vector position;
+    float speedX;
+    float speedY;
+
+    void init()
+    {
+        position = new Vector();
+        speedX = 1.0;
+        speedY = 1.0;
+    };
+
+    void update(float dt)
+    {
+        float speedXDt = 0.5 * dt * speedX;
+        float speedYDt = 0.8 * dt * speedY;
+
+        position.x = position.x + speedXDt;
+        position.y = position.y + speedYDt;
+
+        if (position.x > 1.0)
+        {
+            speedX = -1.0;
+        };
+
+        if (position.x < 0.0)
+        {
+            speedX = 1.0;
+        };
+
+        if (position.y > 1.0)
+        {
+            speedY = -1.0;
+        };
+
+        if (position.y < 0.0)
+        {
+            speedY = 1.0;
+        };
+    };
+};
