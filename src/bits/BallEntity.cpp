@@ -37,7 +37,7 @@ namespace bcb
 
         gf::Vector2f pos(AS_FLOAT(*(positionInstance->getField(m_game.vm, "x"))), AS_FLOAT(*(positionInstance->getField(m_game.vm, "y"))));
 
-        gf::Log::debug("pos.x : %f, pos.y : %f\n", AS_FLOAT(*(positionInstance->getField(m_game.vm, "x"))), AS_FLOAT(*(positionInstance->getField(m_game.vm, "y"))));
+        //gf::Log::debug("pos.x : %f, pos.y : %f\n", AS_FLOAT(*(positionInstance->getField(m_game.vm, "x"))), AS_FLOAT(*(positionInstance->getField(m_game.vm, "y"))));
 
         gf::CircleShape ball;
 

@@ -25,16 +25,20 @@ namespace bcb
         addAction(m_removeBallAction);
 
         addHudEntity(m_framerateEntity);
+
+        m_balls.reserve(100u);
     }
 
-    void GameScene::doHandleActions(gf::Window& window)
+    void GameScene::doHandleActions([[maybe_unused]] gf::Window& window)
     {
-        if (m_addBallAction.isActive())
+        if (m_addBallAction.isActive() && m_balls.size() < 100u)
         {
+            std::cout << "doHandleActions before : " << m_balls.size() << std::endl;
             addHudEntity(m_balls.emplace_back(m_game));
+            std::cout << "doHandleActions after : " << m_balls.size() << std::endl;
         }
 
-        if (m_removeBallAction.isActive())
+        if (m_removeBallAction.isActive() && m_balls.size() > 0u)
         {
             removeHudEntity(&m_balls[m_balls.size() - 1]);
             m_balls.pop_back();
