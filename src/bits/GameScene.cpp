@@ -33,9 +33,7 @@ namespace bcb
     {
         if (m_addBallAction.isActive() && m_balls.size() < 100u)
         {
-            std::cout << "doHandleActions before : " << m_balls.size() << std::endl;
             addHudEntity(m_balls.emplace_back(m_game));
-            std::cout << "doHandleActions after : " << m_balls.size() << std::endl;
         }
 
         if (m_removeBallAction.isActive() && m_balls.size() > 0u)
@@ -48,6 +46,15 @@ namespace bcb
     void GameScene::doShow()
     {
         gf::Scene::doShow();
+
+        bool ok = m_game.vm.linkGlobalNative(m_game.vm.getFunctionName("rand"), [] (Pomme::VirtualMachine& vm, int argCount, Pomme::Value* args)
+        {
+            assert(argCount == 0);
+
+            return FLOAT_VAL((float) std::rand() / RAND_MAX);
+        });
+
+        assert(ok);
 
         addHudEntity(m_balls.emplace_back(m_game));
     }

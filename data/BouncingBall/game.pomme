@@ -1,3 +1,5 @@
+native float rand();
+
 class Vector
 {
     float x;
@@ -13,6 +15,8 @@ class Ball
     void init()
     {
         position = new Vector();
+        position.x = rand();
+        position.y = rand();
         speedX = 1.0;
         speedY = 1.0;
     };
