@@ -29,7 +29,7 @@ class Ball
         position.x = position.x + speedXDt;
         position.y = position.y + speedYDt;
 
-        if (position.x > 1.0)
+        if (position.x + 0.1 > 1.0)
         {
             speedX = -1.0;
         };
@@ -39,7 +39,7 @@ class Ball
             speedX = 1.0;
         };
 
-        if (position.y > 1.0)
+        if (position.y + 0.15 > 1.0)
         {
             speedY = -1.0;
         };
