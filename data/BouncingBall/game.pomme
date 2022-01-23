@@ -4,6 +4,12 @@ class Vector
 {
     float x;
     float y;
+
+    Vector(float px, float py)
+    {
+        x = px;
+        y = py;
+    };
 };
 
 class Ball
@@ -14,9 +20,7 @@ class Ball
 
     void init()
     {
-        position = new Vector();
-        position.x = rand();
-        position.y = rand();
+        position = new Vector(rand(), rand());
         speedX = 1.0;
         speedY = 1.0;
     };
